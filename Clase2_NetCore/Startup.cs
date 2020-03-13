@@ -33,11 +33,29 @@ namespace Clase2_NetCore
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //app.UseWelcomePage();
+            app.UseMyMiddleware();
+
+
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync( "Hola Mundo!" );
+            //    await next();
+            //}
+            //);
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync(" Hola Mundo desde segundo Middleware ");
+            //});
+
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
